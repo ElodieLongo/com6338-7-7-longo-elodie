@@ -1,4 +1,4 @@
-let questionsArr = [
+var questionsArr = [
   {
     question: 'What is the tallest building in the world?',
     answer: "Burj Khalifa",
@@ -118,11 +118,12 @@ function startQuiz() {
 //timer
       timerElement = document.createElement('p');
       let seconds = 30;
-
+      timerElement.textContent = seconds;
+      seconds--;
       const timerInterval = setInterval(() => {
-        timerElement.textContent = `${seconds}`;
+        timerElement.textContent = seconds;
         seconds--;
-        if (seconds === -1) {
+        if (seconds === 0) {
           clearInterval(timerInterval);
           questionElement.remove();
           optionsDiv.remove();
